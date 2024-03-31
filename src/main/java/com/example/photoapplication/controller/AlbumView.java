@@ -1,2 +1,2 @@
-package com.example.photoapplication;public class AlbumView {
+package com.example.photoapplication.controller;public class AlbumView {
 }

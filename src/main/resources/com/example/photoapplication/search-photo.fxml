@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.photoapplication.controller.SearchPhoto">
+   <children>
+       <Button layoutX="831.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" text="Back" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
+
+       <Label layoutX="264.0" layoutY="22.0" prefHeight="48.0" prefWidth="287.0" text="Welcome To Photo Search" textAlignment="CENTER" AnchorPane.leftAnchor="302.0" AnchorPane.rightAnchor="314.0" AnchorPane.topAnchor="20.0">
+           <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+           </padding>
+           <font>
+               <Font size="23.0" />
+           </font></Label>
+      <Button layoutX="170.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" text="By Date Range" />
+      <Button layoutX="606.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" text="By Tag Pairs" />
+      <ListView layoutX="272.0" layoutY="154.0" prefHeight="249.0" prefWidth="328.0" AnchorPane.leftAnchor="272.0" AnchorPane.topAnchor="154.0" />
+      <Button layoutX="333.0" layoutY="437.0" mnemonicParsing="false" prefHeight="30.0" text="Create Album For Search Result" />
+   </children>
+</AnchorPane>
