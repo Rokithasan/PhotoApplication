@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.photoapplication.controller.AlbumView">
+<children>
+    <Label layoutX="264.0" layoutY="22.0" prefHeight="48.0" prefWidth="273.0" text="Welcome To  Album View " AnchorPane.leftAnchor="264.0" AnchorPane.rightAnchor="263.0" AnchorPane.topAnchor="20.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+        <font>
+            <Font size="23.0" />
+        </font></Label>
+
+    <Button fx:id="backButtonId" layoutX="718.0" layoutY="25.0" mnemonicParsing="false" text="Back" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="28.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding></Button>
+
+    <Button fx:id="addPhotoButtonId" layoutX="718.0" layoutY="25.0" mnemonicParsing="false" text="Add Photo" AnchorPane.leftAnchor="734.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="161.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding></Button>
+
+    <Button fx:id="viewSlideShowButtonId" layoutX="718.0" layoutY="25.0" mnemonicParsing="false" text="View Slide Show" AnchorPane.leftAnchor="734.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="220.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding></Button>
+
+    <Label layoutX="335.0" layoutY="289.0" prefHeight="43.0" prefWidth="78.0" text="Album" AnchorPane.leftAnchor="370.0" AnchorPane.rightAnchor="361.0" AnchorPane.topAnchor="84.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+        <font>
+            <Font size="18.0" />
+        </font></Label>
+
+    <ListView fx:id="userListViewId" layoutX="158.0" layoutY="332.0" prefHeight="163.0" prefWidth="462.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="141.0" />
+
+    <Label layoutX="335.0" layoutY="289.0" prefHeight="43.0" prefWidth="200.0" text="Selected Photo Details" AnchorPane.leftAnchor="298.0" AnchorPane.rightAnchor="311.0" AnchorPane.topAnchor="306.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+        <font>
+            <Font size="18.0" />
+        </font></Label>
+      <ImageView fitHeight="206.0" fitWidth="200.0" layoutX="151.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="540.0" AnchorPane.topAnchor="348.0" />
+      <ComboBox layoutX="370.0" layoutY="364.0" prefHeight="30.0" prefWidth="180.0" AnchorPane.leftAnchor="429.0" />
+      <Label layoutX="370.0" layoutY="401.0" text="Caption:" AnchorPane.topAnchor="414.0" />
+      <Label layoutX="377.0" layoutY="430.0" text="Date:" AnchorPane.topAnchor="454.0" />
+      <TextField layoutX="428.0" layoutY="406.0" prefHeight="30.0" prefWidth="180.0" />
+      <DatePicker layoutX="436.0" layoutY="454.0" prefHeight="30.0" prefWidth="180.0" AnchorPane.leftAnchor="428.0" AnchorPane.topAnchor="448.0" />
+    <Label layoutX="377.0" layoutY="435.0" text="Tags:" AnchorPane.topAnchor="495.0" />
+      <TextField layoutX="459.0" layoutY="488.0" prefHeight="30.0" prefWidth="180.0" AnchorPane.leftAnchor="429.0" />
+      <Button layoutX="160.0" layoutY="575.0" mnemonicParsing="false" text="Move" />
+      <Button layoutX="233.0" layoutY="575.0" mnemonicParsing="false" text="Copy" AnchorPane.leftAnchor="225.0" />
+      <Button layoutX="298.0" layoutY="575.0" mnemonicParsing="false" text="Remove" AnchorPane.leftAnchor="287.0" />
+      <Button layoutX="619.0" layoutY="533.0" mnemonicParsing="false" prefHeight="30.0" text="Add Tag Type" AnchorPane.topAnchor="533.0" />
+      <Label layoutX="377.0" layoutY="529.0" text="Select Category:" AnchorPane.leftAnchor="362.0" AnchorPane.topAnchor="536.0" />
+      <Label layoutX="378.0" layoutY="546.0" text="Tag Value:" AnchorPane.leftAnchor="357.0" AnchorPane.topAnchor="579.0" />
+      <ComboBox layoutX="448.0" layoutY="525.0" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="458.0" AnchorPane.topAnchor="531.0" />
+      <TextField layoutX="518.0" layoutY="601.0" prefHeight="30.0" prefWidth="180.0" AnchorPane.leftAnchor="428.0" AnchorPane.topAnchor="571.0" />
+      <Button layoutX="620.0" layoutY="573.0" mnemonicParsing="false" prefHeight="30.0" text="Remove  Tag" />
+      <Button layoutX="725.0" layoutY="533.0" mnemonicParsing="false" prefHeight="30.0" text="Add Tag" />
+
+</children>
+</AnchorPane>

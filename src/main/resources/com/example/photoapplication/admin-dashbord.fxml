@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.photoapplication.controller.AdminDashboard">
+   <children>
+      <Label layoutX="264.0" layoutY="22.0" prefHeight="48.0" prefWidth="273.0" text="Welcome To  Admin Page" AnchorPane.leftAnchor="264.0" AnchorPane.rightAnchor="263.0" AnchorPane.topAnchor="20.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Button fx:id="logoutButtonId" layoutX="718.0" layoutY="25.0" mnemonicParsing="false" text="Logout" AnchorPane.topAnchor="28.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></Button>
+      <Label layoutX="321.0" layoutY="124.0" prefHeight="48.0" prefWidth="135.0" text="Add New User" AnchorPane.leftAnchor="321.0" AnchorPane.rightAnchor="344.0" AnchorPane.topAnchor="94.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="248.0" layoutY="187.0" text="Enter User Name:" AnchorPane.topAnchor="150.0" />
+      <TextField fx:id="userNameTextFId" layoutX="360.0" layoutY="180.0" prefHeight="30.0" prefWidth="230.0" AnchorPane.topAnchor="145.0" />
+
+      <Label layoutX="231.0" layoutY="228.0" text="Give User Password:" AnchorPane.topAnchor="194.0" />
+      <TextField fx:id="userPasswordTextId" layoutX="360.0" layoutY="221.0" prefHeight="30.0" prefWidth="230.0" AnchorPane.topAnchor="187.0" />
+
+      <Button fx:id="addUserButton" layoutX="718.0" layoutY="50.0" mnemonicParsing="false" text="Add User" AnchorPane.bottomAnchor="290.0" AnchorPane.leftAnchor="362.0" AnchorPane.rightAnchor="334.5" AnchorPane.topAnchor="231.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></Button>
+
+      <Label layoutX="335.0" layoutY="289.0" prefHeight="37.0" prefWidth="79.0" text="All User" AnchorPane.leftAnchor="319.0" AnchorPane.rightAnchor="401.0" AnchorPane.topAnchor="289.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <ListView fx:id="userListViewId" layoutX="194.0" layoutY="332.0" prefHeight="130.0" prefWidth="488.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="335.0" />
+
+      <Button fx:id="deleteUserButtonId" layoutX="362.0" layoutY="480.0" mnemonicParsing="false" text="Delete User" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="362.0" AnchorPane.rightAnchor="334.5" AnchorPane.topAnchor="480.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></Button>
+
+   </children>
+</AnchorPane>
