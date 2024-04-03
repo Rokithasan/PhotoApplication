@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.photoapplication.controller.Login">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.photoapplication.controller.Login">
     <children>
-        <Circle fill="DODGERBLUE" layoutX="350.0" layoutY="156.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
-        <TextField fx:id="loginNameTextFildId" layoutX="250.0" layoutY="237.0" prefHeight="34.0" prefWidth="220.0" />
-        <TextField fx:id="passwordTextFildId" layoutX="250.0" layoutY="287.0" prefHeight="34.0" prefWidth="220.0" />
-        <Button fx:id="loginButtonId" layoutX="321.0" layoutY="346.0" mnemonicParsing="false" onAction="#onActionLogin" prefHeight="30.0" prefWidth="70.0" text="Login" />
-        <Label layoutX="196.0" layoutY="31.0" text="Wellcome to Photo Application">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="38.0" prefHeight="61.0" prefWidth="468.0" text="Welcome to Photo Management System" textFill="#00b3ff">
             <font>
-                <Font name="System Bold" size="24.0" />
+                <Font name="Times New Roman Bold" size="25.0" />
             </font>
         </Label>
+        <Label layoutX="133.0" layoutY="188.0" prefHeight="37.0" prefWidth="141.0" text="Username:">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfUsername" layoutX="274.0" layoutY="184.0" prefHeight="45.0" prefWidth="299.0" promptText="username" />
+        <Button fx:id="btnLogin" layoutX="170.0" layoutY="338.0" mnemonicParsing="false" onAction="#actionOnLogin" prefHeight="45.0" prefWidth="141.0" text="Login" textFill="#1e6b5c">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnExit" layoutX="394.0" layoutY="338.0" mnemonicParsing="false" onAction="#actionOnExit" prefHeight="45.0" prefWidth="141.0" text="Exit" textFill="#1e6b5c">
+            <font>
+                <Font name="Times New Roman Bold" size="20.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>

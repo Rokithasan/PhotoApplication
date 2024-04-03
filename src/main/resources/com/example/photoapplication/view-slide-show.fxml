@@ -3,12 +3,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.photoapplication.controller.ViewSlideShow">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.photoapplication.controller.ViewSlideShow">
    <children>
-      <ImageView fitHeight="224.0" fitWidth="307.0" layoutX="332.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="337.0" AnchorPane.rightAnchor="261.0" AnchorPane.topAnchor="100.0" />
-      <Button layoutX="352.0" layoutY="344.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Previous" />
-      <Button layoutX="551.0" layoutY="344.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="next" />
-      <Button layoutX="790.0" layoutY="29.0" mnemonicParsing="false" prefHeight="40.0" text="Exit Slide Show" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0" />
+      <Button fx:id="btnPrev" layoutX="222.0" layoutY="519.0" mnemonicParsing="false" onAction="#actionOnPrev" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: transparent;" text="&lt;&lt;" textFill="#00b3ff">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnExitSlide" layoutX="591.0" layoutY="582.0" mnemonicParsing="false" onAction="#actionOnExitSlide" prefHeight="39.0" prefWidth="173.0" text="Exit Slide Show" textFill="#1e6b5c">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="img" fitHeight="441.0" fitWidth="561.0" layoutX="116.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnNext" layoutX="492.0" layoutY="519.0" mnemonicParsing="false" onAction="#actionOnNext" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: transparent;" text="&gt;&gt;" textFill="#00b3ff">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

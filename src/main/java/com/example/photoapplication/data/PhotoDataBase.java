@@ -21,7 +21,7 @@ public class PhotoDataBase implements Serializable {
         users = new ArrayList<>();
         currentSessionUser = null;
 
-        User stock = new User("stock","1234");
+        User stock = new User("stock");
         users.add(stock);
         Album stockAlbum = new Album("stock");
         stock.addAlbum(stockAlbum);
