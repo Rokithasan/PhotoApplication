@@ -135,7 +135,7 @@ public class AlbumView  implements Initializable {
                         String aNm = lvAlbums.getSelectionModel().getSelectedItem();
                         User u = PhotoDataBase.getCurrentSessionUser();
                         u.setCurrentSessionAlbum(aNm);
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewAlbum.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/photoapplication/photo-view.fxml"));
                         Parent openAlbum = loader.load();
                         Scene allAlbumsScene = new Scene(openAlbum);
                         Stage mainStage = (Stage) lvAlbums.getScene().getWindow();
