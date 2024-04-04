@@ -623,7 +623,7 @@ public class PhotoView implements Initializable {
             if (photos.isEmpty()) {
                 Utils.showError("Slide Show", "There are no photos in this album to start slideshow!");
             } else {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("view-slide-show.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/photoapplication/view-slide-show.fxml"));
                 Parent sS = loader.load();
                 ViewSlideShow controller = loader.getController();
                 Scene ssScene = new Scene(sS);
