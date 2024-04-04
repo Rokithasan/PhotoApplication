@@ -204,35 +204,38 @@ public class AlbumView implements Initializable {
 
     @FXML
     void actionOnCreateAlbum(ActionEvent event) {
-
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("Create New Album: ");
-        dialog.setHeaderText("Enter the name of new album: ");
+        dialog.setTitle("Create New Album");
+        dialog.setHeaderText("Enter the name of the new album:");
 
-        dialog.showAndWait().ifPresent(str
-                -> {
-            if (!albums.contains(str)) {
-                Album newAlbum = new Album(str);
-                User currentUser = PhotoDataBase.getCurrentSessionUser();
-                currentUser.addAlbum(newAlbum);
-                albums.add(str);
-                int index = albums.indexOf(str);
-                lvAlbums.getSelectionModel().select(index);
-                displayAlbum();
-                btnDelete.setDisable(false);
-                btnRename.setDisable(false);
-                try {
-                    PhotoDataBase userData = PhotoDataBase.getInstance();
-                    userData.writeToAFile();
-                } catch (Exception ex) {
-
+        dialog.showAndWait().ifPresent(str -> {
+            if (!str.trim().isEmpty()) { // Check if the entered name is not empty after trimming whitespace
+                if (!albums.contains(str)) {
+                    Album newAlbum = new Album(str);
+                    User currentUser = PhotoDataBase.getCurrentSessionUser();
+                    currentUser.addAlbum(newAlbum);
+                    albums.add(str);
+                    int index = albums.indexOf(str);
+                    lvAlbums.getSelectionModel().select(index);
+                    displayAlbum();
+                    btnDelete.setDisable(false);
+                    btnRename.setDisable(false);
+                    try {
+                        PhotoDataBase userData = PhotoDataBase.getInstance();
+                        userData.writeToAFile();
+                    } catch (Exception ex) {
+                        // Handle exception
+                    }
+                } else {
+                    Utils.showError("Create Album", "An album with the name \"" + str + "\" already exists.");
+                    actionOnCreateAlbum(event);
                 }
             } else {
-                Utils.showError("Create Album", "An album with the name \"" + str + "\" already exists.");
-                actionOnCreateAlbum(event);
+                Utils.showError("Create Album", "Album name cannot be empty.");
             }
         });
     }
+
 
 
     @FXML
@@ -338,7 +341,7 @@ public class AlbumView implements Initializable {
             } else if (fromDate.isAfter(toDate)) {
                 Utils.showError("Search Photos", "Please select a valid Date-Range");
             } else {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchPhotos.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/photoapplication/search-photo.fxml"));
                 try {
                     Parent searchPhotos = loader.load();
                     SearchPhoto controller = loader.getController();
@@ -426,7 +429,7 @@ public class AlbumView implements Initializable {
             } else if (categoryChoiceBox2.getSelectionModel().getSelectedIndex() == 0 && !tagValue2.isEmpty()) {
                 Utils.showError("Invalid Tag Pair", "Please Enter a Valid Tag Value");
             } else {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("searchPhotos.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/photoapplication/search-photo.fxml"));
                 try {
                     Parent searchPhotos = loader.load();
                     SearchPhoto controller = loader.getController();

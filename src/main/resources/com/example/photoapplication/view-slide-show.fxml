@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.photoapplication.controller.ViewSlideShow">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.photoapplication.controller.ViewSlideShow">
    <children>
       <Button fx:id="btnPrev" layoutX="222.0" layoutY="519.0" mnemonicParsing="false" onAction="#actionOnPrev" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: transparent;" text="&lt;&lt;" textFill="#00b3ff">
          <font>

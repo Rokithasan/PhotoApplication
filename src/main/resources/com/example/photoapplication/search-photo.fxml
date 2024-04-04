@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.photoapplication.controller.SearchPhoto">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.photoapplication.controller.SearchPhoto">
     <children>
         <Text fill="#00b3ff" layoutX="246.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Photo Management" textAlignment="CENTER" wrappingWidth="398.3805847167969">
             <font>
