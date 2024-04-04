@@ -28,6 +28,15 @@ public class Login implements Initializable {
     @FXML
     private TextField tfUsername;
 
+    private PhotoDataBase photoDataBase;
+
+    public Login() {
+    }
+
+    public Login(PhotoDataBase photoDataBase) {
+        this.photoDataBase = photoDataBase;
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

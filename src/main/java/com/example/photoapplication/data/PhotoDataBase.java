@@ -10,11 +10,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class PhotoDataBase implements Serializable {
-
     private static final long serialVersionUID = 6L;
     private static PhotoDataBase instance = null;
     private ArrayList<User> users;
-
     public static User currentSessionUser;
 
     private PhotoDataBase() {
@@ -97,7 +95,6 @@ public class PhotoDataBase implements Serializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return loadUsers;
     }
 
@@ -112,6 +109,7 @@ public class PhotoDataBase implements Serializable {
             e.printStackTrace();
         }
     }
+
     public void setCurrentSessionUser(String username) {
         for (User allUser : users) {
             if (allUser.getUserName().equals(username)) {
@@ -122,5 +120,25 @@ public class PhotoDataBase implements Serializable {
 
     public static User getCurrentSessionUser() {
         return currentSessionUser;
+    }
+
+    public static void main(String[] args) {
+        PhotoDataBase photoDataBase = PhotoDataBase.getInstance();
+        photoDataBase.startApplication();
+    }
+
+    private void startApplication() {
+        // Registering shutdown hook
+        Runtime.getRuntime().addShutdownHook(new Thread(this::shutdownHook));
+        // Code to start the main window or other initialization steps
+    }
+
+    private void shutdownHook() {
+        // Save data to disk before shutting down
+        try {
+            writeToAFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

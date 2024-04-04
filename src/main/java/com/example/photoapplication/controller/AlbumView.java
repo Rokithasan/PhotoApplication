@@ -236,8 +236,6 @@ public class AlbumView implements Initializable {
         });
     }
 
-
-
     @FXML
     void actionOnDeleteAlbum(ActionEvent event) {
 

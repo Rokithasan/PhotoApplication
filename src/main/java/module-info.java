@@ -1,6 +1,7 @@
 module com.example.photoapplication {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.prefs;
 
 
     opens com.example.photoapplication to javafx.fxml;
