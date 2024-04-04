@@ -26,12 +26,12 @@ public class PhotoDataBase implements Serializable {
         Album stockAlbum = new Album("stock");
         stock.addAlbum(stockAlbum);
 
-        Photo p1 = new Photo("Acura", "/com/example/photoapplication/database/acura.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
-        Photo p2 = new Photo("Bugatti Mistral", "/com/example/photoapplication/database/bugatti_mistral.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
-        Photo p3 = new Photo("Jaguar F-Type", "/com/example/photoapplication/database/jaguar.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
-        Photo p4 = new Photo("Lamborghini Urus", "/com/example/photoapplication/database/lamborghini.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
-        Photo p5 = new Photo("Lamborghini huracan", "/com/example/photoapplication/database/lamborghini_huracan.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
-        Photo p6 = new Photo("Porsche 911", "/com/example/photoapplication/database/porsche.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
+        Photo p1 = new Photo("Acura", "database/acura.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
+        Photo p2 = new Photo("Bugatti Mistral", "database/bugatti_mistral.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
+        Photo p3 = new Photo("Jaguar F-Type", "database/jaguar.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
+        Photo p4 = new Photo("Lamborghini Urus", "database/lamborghini.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
+        Photo p5 = new Photo("Lamborghini huracan", "database/lamborghini_huracan.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
+        Photo p6 = new Photo("Porsche 911", "database/porsche.jpg", LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm a")));
 
         stockAlbum.addPhotos(p1);
         stockAlbum.addPhotos(p2);

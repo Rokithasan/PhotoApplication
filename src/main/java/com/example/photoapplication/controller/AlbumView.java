@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AlbumView  implements Initializable {
+public class AlbumView implements Initializable {
 
     @FXML
     private VBox albumDetails;
@@ -111,8 +111,9 @@ public class AlbumView  implements Initializable {
                         if (path == null) {
                             path = "database/tempphoto.png";
                         }
-                        ImageView imageView = new ImageView();
+
                         Image image = new Image("file:" + path);
+                        ImageView imageView = new ImageView(image);
                         Label name = new Label(item);
                         name.setFont(new Font(20));
                         imageView.setFitWidth(150);
@@ -232,7 +233,6 @@ public class AlbumView  implements Initializable {
             }
         });
     }
-
 
 
     @FXML
