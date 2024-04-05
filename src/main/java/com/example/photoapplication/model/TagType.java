@@ -13,72 +13,115 @@ public class TagType implements Serializable {
     private boolean single;
 
     /**
-     * Constructs a TagType with the specified name.
+     * Represents a single tag value in the tag type.
+     */
+    public class Tag implements Serializable {
+
+        private static final long serialVersionUID = 2L;
+        private String tagVal;
+
+        /**
+         * Constructor for creating new tag value.
+         *
+         * @param val value of the tag
+         */
+        public Tag(String val) {
+            this.tagVal = val;
+        }
+
+        /**
+         * Method for returning the tag value.
+         *
+         * @return tag value
+         */
+        public String getTagValue() {
+            return tagVal;
+        }
+
+        /**
+         * Method for setting the new tag value.
+         *
+         * @param tagValue new tag value
+         */
+        public void setTagValue(String tagValue) {
+            this.tagVal = tagValue;
+        }
+
+        /**
+         * Return tag value in string format.
+         *
+         * @return string value of the tag.
+         */
+        public String toString() {
+            return TagType.this.toString() + " : " + this.tagVal;
+        }
+    }
+
+    /**
+     * Constructor for creating new tag type.
      *
-     * @param name The name of the tag type.
+     * @param name name of the tag type.
      */
     public TagType(String name) {
         this.name = name;
     }
 
     /**
-     * Constructs a TagType with the specified name and single-valued flag.
+     * Constructor for creating a new Tag Type object with the specified name
+     * and singularity.
      *
-     * @param name The name of the tag type.
-     * @param single Indicates whether the tag type is single-valued.
+     * @param name the name of the tag type
+     * @param single whether the tag type is singular or plural
      */
-
-    public TagType(String name, boolean single) {
-        this.name = name;
+    public TagType(String name, Boolean single) {
+        this.setName(name);
         this.single = single;
     }
 
     /**
-     * Retrieves the name of the tag type.
+     * Method for getting name of the tag type.
      *
-     * @return The name of the tag type.
+     * @return name of the tag type
      */
-
     public String getName() {
         return name;
     }
 
     /**
-     * Sets the name of the tag type.
+     * Method for setting name of the tag type.
      *
-     * @param name The new name for the tag type.
+     * @param typeName new name of the tag type.
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String typeName) {
+        this.name = typeName;
     }
 
     /**
-     * Checks if the tag type is single-valued.
+     * Returns Tag type in string format.
      *
-     * @return true if the tag type is single-valued, otherwise false.
+     * @return string value of tag type
+     */
+    public String toString() {
+        return this.name;
+    }
+
+    /**
+     * Method for checking the tag type is single or plural.
+     *
+     * @return true if the tag type is singular, false if it is plural
      */
     public boolean isSingle() {
         return single;
     }
 
     /**
-     * Sets whether the tag type is single-valued.
+     * Method for setting the tag type is singular or plural.
      *
-     * @param single true if the tag type should be single-valued, otherwise false.
+     * @param single true if the tag type is singular, false if it is plural
      */
     public void setSingle(boolean single) {
         this.single = single;
     }
 
-    /**
-     * Returns a string representation of the TagType object.
-     *
-     * @return A string representation of the TagType object.
-     */
-    @Override
-    public String toString() {
-        return "TagType{" +
-                "name='" + name + '\'' +
-                '}';
-    }
 }
+

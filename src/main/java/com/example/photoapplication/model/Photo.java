@@ -11,14 +11,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Photo implements Serializable {
+
     private static final long serialVersionUID = 3L;
     private String photoCaption;
     private String path;
     private String lastModifyDate;
-    private ArrayList<Tag> listTags = new ArrayList<Tag>();
+    private ArrayList<TagType.Tag> listTags = new ArrayList<TagType.Tag>();
 
     /**
-     * Constructs an empty photo with no caption, path, or last modified date.
+     * Constructor for creating new photo object with null values.
      */
     public Photo() {
         photoCaption = null;
@@ -27,11 +28,12 @@ public class Photo implements Serializable {
     }
 
     /**
-     * Constructs a photo with the specified caption, path, and last modified date.
+     * Constructor for creating a new Photo object with the given caption, image
+     * path, and last modified date.
      *
-     * @param caption The caption of the photo.
-     * @param photoPath The path of the photo.
-     * @param date The last modified date of the photo.
+     * @param caption caption of the photo
+     * @param photoPath file path to the image file of the photo
+     * @param date the last modified date of the photo
      */
     public Photo(String caption, String photoPath, String date) {
         this.photoCaption = caption;
@@ -40,26 +42,27 @@ public class Photo implements Serializable {
     }
 
     /**
-     * Retrieves the tags associated with the photo.
+     * Method for getting the list of tags associated with the photo.
      *
-     * @return An ArrayList containing the tags associated with the photo.
+     * @return ArrayList of strings representing each tag associated with the
+     * photo
      */
     public ArrayList<String> getTags() {
         ArrayList<String> list = new ArrayList<String>();
-        for (Tag t : listTags) {
+        for (TagType.Tag t : listTags) {
             list.add(t.toString());
         }
         return list;
     }
 
     /**
-     * Checks if the photo contains a specific tag.
+     * Method for checking either the photo contain the specified tag or not.
      *
-     * @param tagVal The value of the tag to check.
-     * @return true if the photo contains the specified tag, otherwise false.
+     * @param tagVal the string value of the tag to search for
+     * @return true if the photo contains the tag, false if not
      */
     public boolean containsTag(String tagVal) {
-        for (Tag t : listTags) {
+        for (TagType.Tag t : listTags) {
             if (t.toString().equals(tagVal)) {
                 return true;
             }
@@ -68,18 +71,18 @@ public class Photo implements Serializable {
     }
 
     /**
-     * Adds a tag to the photo.
+     * Method for adding a new tag in the photo.
      *
-     * @param tag The tag to add to the photo.
+     * @param tag tag to add to the photo
      */
-    public void addTag(Tag tag) {
+    public void addTag(TagType.Tag tag) {
         listTags.add(tag);
     }
 
     /**
-     * Sets the caption of the photo and updates the last modified date.
+     * Method for setting new caption to the photo.
      *
-     * @param caption The new caption for the photo.
+     * @param caption new caption for the photo
      */
     public void setPhotoCaption(String caption) {
         photoCaption = caption;
@@ -87,18 +90,18 @@ public class Photo implements Serializable {
     }
 
     /**
-     * Retrieves the caption of the photo.
+     * Method for getting the caption of the photo.
      *
-     * @return The caption of the photo.
+     * @return the caption of the photo
      */
     public String getPhotoCaption() {
         return photoCaption;
     }
 
     /**
-     * Sets the path of the photo and updates the last modified date.
+     * Method for setting new path of the photo.
      *
-     * @param path The new path for the photo.
+     * @param path the new file path for the photo
      */
     public void setPath(String path) {
         this.path = path;
@@ -106,41 +109,41 @@ public class Photo implements Serializable {
     }
 
     /**
-     * Retrieves the path of the photo.
+     * Method for getting the path of the photo.
      *
-     * @return The path of the photo.
+     * @return the file path to the image file of the photo
      */
     public String getPath() {
         return path;
     }
 
     /**
-     * Retrieves the last modified date of the photo.
+     * Method for getting the last modified date of the photo.
      *
-     * @return The last modified date of the photo.
+     * @return last modified date of the photo
      */
     public String getLastModDate() {
         return lastModifyDate;
     }
 
     /**
-     * Sets the last modified date of the photo.
+     * Method for updating the last modify date of the photo.
      *
-     * @param lastModDate The last modified date to set.
+     * @param lastModDate	String form of date
      */
     public void setLastModDate(String lastModDate) {
         this.lastModifyDate = lastModDate;
     }
 
     /**
-     * Removes a tag from the photo.
+     * Method for removing a tag from the photo
      *
-     * @param tagVal The value of the tag to remove.
+     * @param tagVal	Tag in String format
      */
     public void removeTag(String tagVal) {
-        Iterator<Tag> iterator = listTags.iterator();
+        Iterator<TagType.Tag> iterator = listTags.iterator();
         while (iterator.hasNext()) {
-            Tag t = iterator.next();
+            TagType.Tag t = iterator.next();
             if (t.toString().equals(tagVal)) {
                 iterator.remove();
             }

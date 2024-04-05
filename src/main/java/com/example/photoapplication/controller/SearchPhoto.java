@@ -38,6 +38,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -255,7 +256,6 @@ public class SearchPhoto implements Initializable {
      * @param tagStr2  The second tag string for the search.
      */
     public void search(LocalDate fromDate, LocalDate toDate, String tagStr, String operator, String tagStr2) {
-
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         User currentUser = PhotoDataBase.getCurrentSessionUser();
         ArrayList<Album> currAlbums = currentUser.getAlbumList();
@@ -275,18 +275,46 @@ public class SearchPhoto implements Initializable {
 
         for (Album album : currAlbums) {
             String albumDateRange = album.dateRange();
-            LocalDate albumFromDate = LocalDate.parse(albumDateRange.substring(0, albumDateRange.indexOf("-")).trim(), dateFormatter);
-            LocalDate albumToDate = LocalDate.parse(albumDateRange.substring(albumDateRange.indexOf("-") + 1).trim(), dateFormatter);
+            if (albumDateRange == null || albumDateRange.isEmpty()) {
+                continue; // Skip this album if date range is missing
+            }
+            int delimiterIndex = albumDateRange.indexOf("-");
+            if (delimiterIndex == -1) {
+                continue; // Skip this album if the delimiter is not found
+            }
+            String albumFromDateStr = albumDateRange.substring(0, delimiterIndex).trim();
+            String albumToDateStr = albumDateRange.substring(delimiterIndex + 1).trim();
+
+            LocalDate albumFromDate;
+            LocalDate albumToDate;
+            try {
+                albumFromDate = LocalDate.parse(albumFromDateStr, dateFormatter);
+                albumToDate = LocalDate.parse(albumToDateStr, dateFormatter);
+            } catch (DateTimeParseException e) {
+                // Handle parsing error
+                System.err.println("Error parsing album date range: " + albumDateRange);
+                e.printStackTrace();
+                continue; // Skip this album if date parsing fails
+            }
+
             if ((fromDate == null && toDate == null) || ((albumFromDate.isAfter(fromDate) || albumFromDate.isEqual(fromDate)) && (albumToDate.isBefore(toDate) || albumToDate.isEqual(toDate)))) {
                 ArrayList<Photo> albumPhotos = album.getPhotoList();
                 for (Photo photo : albumPhotos) {
-                    LocalDate photoLastModDate = LocalDate.parse(photo.getLastModDate().substring(0, 10), dateFormatter);
+                    String photoLastModDateStr = photo.getLastModDate().substring(0, 10);
+                    LocalDate photoLastModDate;
+                    try {
+                        photoLastModDate = LocalDate.parse(photoLastModDateStr, dateFormatter);
+                    } catch (DateTimeParseException e) {
+                        // Handle parsing error
+                        System.err.println("Error parsing photo last modified date: " + photo.getLastModDate());
+                        e.printStackTrace();
+                        continue; // Skip this photo if date parsing fails
+                    }
                     if ((fromDate == null && toDate == null) || ((photoLastModDate.isAfter(fromDate) || photoLastModDate.isEqual(fromDate)) && (photoLastModDate.isBefore(toDate) || photoLastModDate.isEqual(toDate)))) {
                         if ((fromDate != null && toDate != null) || searchPredicate.test(photo)) {
                             if (!photos.contains(photo.getPath())) {
                                 photos.add(photo.getPath());
                             }
-
                         }
                     }
                 }
@@ -294,6 +322,8 @@ public class SearchPhoto implements Initializable {
         }
         displayPhotos();
     }
+
+
 
     /**
      * Displays the search results in the ListView.

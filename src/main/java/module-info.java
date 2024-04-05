@@ -1,4 +1,4 @@
-module com.example.photoapplication {
+module com.example.Photos61 {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.prefs;
