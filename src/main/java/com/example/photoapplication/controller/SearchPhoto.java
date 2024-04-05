@@ -1,3 +1,11 @@
+/**
+ * The SearchPhoto class represents the controller for the search photo screen in a photo application.
+ * This class controls the functionality related to searching for photos based on date range or tag pairs.
+ * It interacts with the PhotoDataBase and User classes to access user and photo data.
+ * The SearchPhoto class implements the Initializable interface to initialize the UI components
+ * defined in the corresponding FXML file.
+ */
+
 package com.example.photoapplication.controller;
 
 import com.example.photoapplication.data.PhotoDataBase;
@@ -237,6 +245,15 @@ public class SearchPhoto implements Initializable {
 
     }
 
+    /**
+     * Performs a search for photos based on specified criteria.
+     *
+     * @param fromDate The start date for the search.
+     * @param toDate   The end date for the search.
+     * @param tagStr   The tag string for the search.
+     * @param operator The logical operator for tag search.
+     * @param tagStr2  The second tag string for the search.
+     */
     public void search(LocalDate fromDate, LocalDate toDate, String tagStr, String operator, String tagStr2) {
 
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
@@ -278,6 +295,9 @@ public class SearchPhoto implements Initializable {
         displayPhotos();
     }
 
+    /**
+     * Displays the search results in the ListView.
+     */
     private void displayPhotos() {
 
         if (photos.isEmpty()) {

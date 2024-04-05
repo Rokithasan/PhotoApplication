@@ -1,3 +1,12 @@
+
+/**
+ * The Login class represents the controller for the login screen in a photo application.
+ * This class controls the functionality related to user authentication.
+ * It interacts with the PhotoDataBase to check user credentials.
+ * The Login class implements the Initializable interface to initialize the UI components
+ * defined in the corresponding FXML file.
+ */
+
 package com.example.photoapplication.controller;
 
 import com.example.photoapplication.data.PhotoDataBase;
@@ -30,24 +39,51 @@ public class Login implements Initializable {
 
     private PhotoDataBase photoDataBase;
 
+    /**
+     * Default constructor.
+     */
     public Login() {
     }
 
+    /**
+     * Constructor with PhotoDataBase parameter.
+     *
+     * @param photoDataBase The instance of PhotoDataBase.
+     */
     public Login(PhotoDataBase photoDataBase) {
         this.photoDataBase = photoDataBase;
     }
 
-
+    /**
+     * Initializes the controller after its root element has been completely processed.
+     * This method sets focus to the username text field.
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tfUsername.requestFocus();
     }
 
+    /**
+     * Handles the action when the exit button is clicked.
+     * It closes the application.
+     *
+     * @param event The event representing the action on the exit button.
+     */
     @FXML
     void actionOnExit(ActionEvent event) {
         System.exit(0);
     }
 
+    /**
+     * Handles the action when the login button is clicked.
+     * It checks the entered username against the database and navigates to the corresponding dashboard.
+     *
+     * @param event The event representing the action on the login button.
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     @FXML
     void actionOnLogin(ActionEvent event) throws IOException {
 

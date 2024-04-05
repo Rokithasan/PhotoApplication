@@ -38,11 +38,6 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>5.3.27</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -65,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.photoapplication/com.example.photoapplication.MainApplication
+                            <mainClass>com.example.photoapplication/com.example.photoapplication.Photos
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

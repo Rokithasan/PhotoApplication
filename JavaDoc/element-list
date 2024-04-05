@@ -1,0 +1,6 @@
+module:com.example.photoapplication
+com.example.photoapplication
+com.example.photoapplication.controller
+com.example.photoapplication.data
+com.example.photoapplication.model
+com.example.photoapplication.utill

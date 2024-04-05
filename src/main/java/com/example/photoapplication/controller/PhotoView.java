@@ -1,3 +1,10 @@
+/**
+ * The PhotoView class represents the controller for the photo view screen in a photo application.
+ * This class controls the functionality related to displaying and managing photos.
+ * It interacts with the PhotoDataBase and User classes to access user and photo data.
+ * The PhotoView class implements the Initializable interface to initialize the UI components
+ * defined in the corresponding FXML file.
+ */
 package com.example.photoapplication.controller;
 
 import com.example.photoapplication.data.PhotoDataBase;
@@ -92,10 +99,18 @@ public class PhotoView implements Initializable {
     @FXML
     private TextField tfTagValue;
 
+    // Observable lists for photos, tags, and tag types
     private ObservableList<String> photos;
     private ObservableList<String> tags;
     private ObservableList<String> tagTypes;
 
+    /**
+     * Initializes the controller after its root element has been completely processed.
+     * This method initializes UI components and sets event handlers.
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -245,6 +260,11 @@ public class PhotoView implements Initializable {
 
     }
 
+    /**
+     * Action to be performed on adding a photo.
+     *
+     * @param event The ActionEvent triggered on adding a photo.
+     */
     @FXML
     void actionOnAddPhoto(ActionEvent event) {
 
@@ -315,6 +335,11 @@ public class PhotoView implements Initializable {
 
     }
 
+    /**
+     * Action to be performed on adding a tag.
+     *
+     * @param event The ActionEvent triggered on adding a tag.
+     */
     @FXML
     void actionOnAddTag(ActionEvent event) {
 
@@ -374,6 +399,11 @@ public class PhotoView implements Initializable {
 
     }
 
+    /**
+     * Action to be performed on adding a tag type.
+     *
+     * @param event The ActionEvent triggered on adding a tag type.
+     */
     @FXML
     void actionOnAddTagType(ActionEvent event) {
 

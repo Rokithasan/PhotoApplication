@@ -1,3 +1,9 @@
+/**
+ * The PhotoDataBase class represents the data storage and management for users, albums, and photos
+ * in a photo application. It provides methods to interact with user data, read from and write to
+ * a serialized file, and handle the current session user.
+ */
+
 package com.example.photoapplication.data;
 
 import com.example.photoapplication.model.Album;
@@ -76,6 +82,11 @@ public class PhotoDataBase implements Serializable {
         return false;
     }
 
+    /**
+     * Reads user data from a serialized file.
+     *
+     * @return The PhotoDataBase instance with loaded user data.
+     */
     public static PhotoDataBase readFromAFile() {
         PhotoDataBase loadUsers = PhotoDataBase.getInstance();
         File file = new File("database/users.ser");
@@ -98,6 +109,11 @@ public class PhotoDataBase implements Serializable {
         return loadUsers;
     }
 
+    /**
+     * Writes user data to a serialized file.
+     *
+     * @throws IOException If an I/O error occurs.
+     */
     public void writeToAFile() throws IOException {
         File f = new File("database/users.ser");
         if(!f.exists()){

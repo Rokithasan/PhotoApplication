@@ -66,6 +66,14 @@ public class AlbumView implements Initializable {
     private ObservableList<String> tags;
 
 
+
+    /**
+     * Initializes the controller after its root element has been completely processed.
+     * This method sets up the album list and initializes UI components.
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -86,6 +94,12 @@ public class AlbumView implements Initializable {
             btnDelete.setDisable(true);
             btnRename.setDisable(true);
         }
+
+        lvAlbums.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                displayAlbum();
+            }
+        });
 
         lvAlbums.setCellFactory(lv -> {
             ListCell<String> cell = new ListCell<String>() {
@@ -155,6 +169,9 @@ public class AlbumView implements Initializable {
 
     }
 
+    /**
+     * Displays details of the selected album.
+     */
     private void displayAlbum() {
 
         Label label0 = new Label("Selected Album Details: ");
@@ -202,6 +219,13 @@ public class AlbumView implements Initializable {
         }
     }
 
+
+    /**
+     * Handles the action when the create album button is clicked.
+     * It prompts the user to enter a name for the new album and creates it.
+     *
+     * @param event The event representing the action on the create album button.
+     */
     @FXML
     void actionOnCreateAlbum(ActionEvent event) {
         TextInputDialog dialog = new TextInputDialog();
@@ -217,7 +241,7 @@ public class AlbumView implements Initializable {
                     albums.add(str);
                     int index = albums.indexOf(str);
                     lvAlbums.getSelectionModel().select(index);
-                    displayAlbum();
+                    displayAlbum(); // Call to displayAlbum to update the UI
                     btnDelete.setDisable(false);
                     btnRename.setDisable(false);
                     try {
@@ -236,6 +260,13 @@ public class AlbumView implements Initializable {
         });
     }
 
+
+    /**
+     * Handles the action when the delete album button is clicked.
+     * It prompts the user to confirm the deletion of the selected album and deletes it.
+     *
+     * @param event The event representing the action on the delete album button.
+     */
     @FXML
     void actionOnDeleteAlbum(ActionEvent event) {
 
@@ -270,6 +301,13 @@ public class AlbumView implements Initializable {
 
     }
 
+    /**
+     * Handles the action when the logout button is clicked.
+     * It navigates the user back to the login screen.
+     *
+     * @param event The event representing the action on the logout button.
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     @FXML
     void actionOnLogout(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/photoapplication/login.fxml"));
@@ -279,6 +317,12 @@ public class AlbumView implements Initializable {
         stage.show();
     }
 
+    /**
+     * Handles the action when the rename album button is clicked.
+     * It prompts the user to enter a new name for the selected album and renames it.
+     *
+     * @param event The event representing the action on the rename album button.
+     */
     @FXML
     void actionOnRenameAlbum(ActionEvent event) {
 
@@ -312,6 +356,12 @@ public class AlbumView implements Initializable {
 
     }
 
+    /**
+     * Handles the action when the search by date button is clicked.
+     * It prompts the user to enter a date range and searches for photos within that range.
+     *
+     * @param event The event representing the action on the search by date button.
+     */
     @FXML
     void actionOnSearchDate(ActionEvent event) {
 
@@ -363,6 +413,12 @@ public class AlbumView implements Initializable {
 
     }
 
+    /**
+     * Handles the action when the search by tag button is clicked.
+     * It prompts the user to enter tag criteria and searches for photos matching that criteria.
+     *
+     * @param event The event representing the action on the search by tag button.
+     */
     @FXML
     void actionOnSearchTag(ActionEvent event) {
 

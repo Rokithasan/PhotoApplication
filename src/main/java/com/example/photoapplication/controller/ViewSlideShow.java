@@ -1,3 +1,10 @@
+/**
+ * The ViewSlideShow class represents the controller for the photo slideshow view in a photo application.
+ * This class controls the functionality related to displaying a slideshow of photos from an album.
+ * It interacts with the Album and Photo classes to access photo data.
+ * The ViewSlideShow class implements the Initializable interface to initialize the UI components
+ * defined in the corresponding FXML file.
+ */
 package com.example.photoapplication.controller;
 
 import com.example.photoapplication.model.Album;
@@ -38,6 +45,11 @@ public class ViewSlideShow implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+    /**
+     * Starts the slideshow with the specified photo index.
+     *
+     * @param count The index of the photo to start the slideshow.
+     */
     public void start(int count) {
         pointer = count;
         Album a = User.getCurrentSessionAlbum();

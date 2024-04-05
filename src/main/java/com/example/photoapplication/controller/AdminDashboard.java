@@ -1,5 +1,14 @@
-package com.example.photoapplication.controller;
+/**
+ * The AdminDashboard class represents the controller for the administrator dashboard
+ * in a photo application.
+ * This class controls the functionality related to user management, such as creating
+ * and deleting users.
+ * It interacts with the PhotoDataBase to manage user data.
+ * The AdminDashboard class implements the Initializable interface to initialize the UI
+ * components defined in the corresponding FXML file.
+ */
 
+package com.example.photoapplication.controller;
 import com.example.photoapplication.data.PhotoDataBase;
 import com.example.photoapplication.model.User;
 import com.example.photoapplication.utill.Utils;
@@ -37,6 +46,14 @@ public class AdminDashboard implements Initializable {
     @FXML
     private TextField tfUsername;
 
+
+    /**
+     * Initializes the controller after its root element has been completely processed.
+     * This method sets up the list of users and disables delete button if no users are available.
+     *
+     * @param url            The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         listUsers.setItems(users);
@@ -46,6 +63,13 @@ public class AdminDashboard implements Initializable {
         }
     }
 
+    /**
+     * Handles the action when the create button is clicked.
+     * It creates a new user if the username is valid and not already taken.
+     * Otherwise, it shows an error message.
+     *
+     * @param event The event representing the action on the create button.
+     */
     @FXML
     void actionOnCreate(ActionEvent event) {
 
@@ -69,7 +93,15 @@ public class AdminDashboard implements Initializable {
         }
     }
 
+    /**
+     * Handles the action when the delete button is clicked.
+     * It deletes the selected user from the database and the UI.
+     * Shows a confirmation dialog before deleting the user.
+     *
+     * @param event The event representing the action on the delete button.
+     */
     @FXML
+
     void actionOnDelete(ActionEvent event) {
 
         String user = listUsers.getSelectionModel().getSelectedItem();
@@ -91,6 +123,14 @@ public class AdminDashboard implements Initializable {
             }
         }
     }
+
+    /**
+     * Handles the action when the logout button is clicked.
+     * It navigates the user back to the login screen.
+     *
+     * @param event The event representing the action on the logout button.
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     @FXML
     void actionOnLogout(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/photoapplication/login.fxml")));
